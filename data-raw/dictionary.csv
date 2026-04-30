@@ -1,0 +1,27 @@
+variable,description,unit,type,source
+id_treatment,Unique identifier for each experimental treatment unit,NA,integer,experiment
+id_inoc,Identifier for the fungal inoculum,NA,integer,inoculum
+id_faeces,Identifier for the faeces sample,NA,integer,faeces
+species,Fungal species used as inoculum,NA,character,inoculum
+wet_weight_0dpi,Wet weight of the faeces sample at day 0 post inoculation,g,numeric,experiment
+wet_weight_14dpi,Wet weight of the faeces sample at day 14 post inoculation,g,numeric,experiment
+dry_weight_0dpi,Dry weight of the faeces sample at day 0 post inoculation; derived from wet weight and water content,g,numeric,derived
+dry_weight_14dpi,Dry weight of the faeces sample at day 14 post inoculation; derived from wet weight and water content,g,numeric,experiment
+ph_0dpi,pH of the faeces sample at day 0 post inoculation,NA,numeric,faeces
+ph_14dpi,pH of the faeces sample at day 14 post inoculation,NA,numeric,experiment
+water_content_0dpi_mean,Mean water content of the faeces sample at day 0 post inoculation; mean of 3 replicates,proportion,numeric,faeces
+ecoli_concentration_0dpi_mean,Mean E. coli concentration at day 0 post inoculation; mean of 3 replicates,CFU/g,numeric,faeces
+ecoli_concentration_14dpi,E. coli concentration at day 14 post inoculation,CFU/g,numeric,experiment
+ecoli_log_change,Log10 change in E. coli concentration from day 0 to day 14,log10(CFU/g),numeric,derived
+enterococcus_concentration_0dpi_mean,Mean Enterococcus concentration at day 0 post inoculation; mean of 3 replicates,CFU/g,numeric,faeces
+enterococcus_concentration_14dpi,Enterococcus concentration at day 14 post inoculation,CFU/g,numeric,experiment
+enterococcus_log_change,Log10 change in Enterococcus concentration from day 0 to day 14,log10(CFU/g),numeric,derived
+total_plate_count_concentration_0dpi_mean,Mean total plate count concentration at day 0 post inoculation; mean of 3 replicates,CFU/g,numeric,faeces
+total_plate_count_concentration_14dpi,Total plate count concentration at day 14 post inoculation,CFU/g,numeric,experiment
+total_plate_count_log_change,Log10 change in total plate count concentration from day 0 to day 14,log10(CFU/g),numeric,derived
+area_size_{X}dpi,Area size of fungal mycelium at X days post inoculation; one column per measured timepoint,cm2,numeric,growthspeed
+max_contamination_area,Maximum total contamination area across all measured timepoints,cm2,numeric,growthspeed
+contamination_auc,Area under the curve of total contamination area over time using the trapezoidal rule,cm2*days,numeric,growthspeed
+any_contamination,Whether any contamination was observed across all timepoints,NA,logical,growthspeed
+any_reproductive_structures,Whether any reproductive structures were observed across all timepoints,NA,logical,growthspeed
+growth_description,Description of fungal growth at the final measured timepoint,NA,character,growthspeed
