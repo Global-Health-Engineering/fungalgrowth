@@ -1,0 +1,3 @@
+fileName,name,contentUrl,encodingFormat
+fungalgrowth.csv,Fungal Growth Assay on Human Faeces,https://github.com/Global-Health-Engineering/fungalgrowth/raw/main/inst/extdata/fungalgrowth.csv,text/csv
+fungalgrowth.xlsx,Fungal Growth Assay on Human Faeces,https://github.com/Global-Health-Engineering/fungalgrowth/raw/main/inst/extdata/fungalgrowth.xlsx,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet

@@ -1,14 +1,19 @@
 Package: fungalgrowth
-Title: What the Package Does (One Line, Title Case)
+Title: Fungal Growth Assay on Human Faeces
 Version: 0.0.0.9000
-Authors@R: 
-    person("First", "Last", , "first.last@example.com", role = c("aut", "cre"))
-Description: What the package does (one paragraph).
-License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
-    license
+Authors@R:
+    person("Jules", "Peter", , "jupeter@ethz.ch", role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0002-1966-1197"))
+Description: Data from a laboratory assay investigating the growth of fungal
+    species on human faeces and their effect on faecal physicochemical
+    properties and bacterial indicator concentrations over 14 days post
+    inoculation. Five fungal species were tested alongside untreated controls:
+    Pleurotus ostreatus (MG1015, MG1010), Ganoderma lucidum, Stropharia
+    fimicola (F35), and Trichoderma harzianum (T22).
+License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.3
-Depends: 
+Depends:
     R (>= 3.5)
 LazyData: true

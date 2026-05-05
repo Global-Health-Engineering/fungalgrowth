@@ -1,4 +1,4 @@
-id_treatment,id_inoc,id_faeces,starting_date,plate_empty_weight,weight_0dpi,weight_14dpi,foil_weight,sample_weight_14dpi,sample_dry weight,ph_14dpi,bacteria_weight,dilution_ecoli,ecoli_counted,dilution_enterococcus,enterococcus_counted,dilution_pc,pc_counted
+id_treatment,id_inoc,id_faeces,starting_date,plate_empty_weight,weight_0dpi,weight_14dpi,foil_weight_14dpi,sample_weight_14dpi,sample_dry_weight,ph_14dpi,bacteria_weight,dilution_ecoli,ecoli_counted,dilution_enterococcus,enterococcus_counted,dilution_pc,pc_counted
 1,1,1,11-18-2025,14.30,29.83,29.45,0.32,5.34,2.64,5.18,0.96,20,0,20,0,20,0
 2,1,1,11-18-2025,14.30,30.11,29.78,0.35,5.36,2.60,5.27,1.01,20,0,20,0,20,2
 3,1,1,11-18-2025,14.30,29.73,28.91,0.36,5.31,2.64,8.53,1.09,20,0,5000,39,5000000,34
@@ -117,7 +117,7 @@ id_treatment,id_inoc,id_faeces,starting_date,plate_empty_weight,weight_0dpi,weig
 116,39,6,12-03-2025,14.47,29.97,29.57,0.43,5.53,2.57,9.12,1.02,500,64,5000,16,500000,34
 117,39,6,12-03-2025,14.48,30.03,29.57,0.38,5.42,2.49,9.08,1.15,5000,77,5000,72,5000000,254
 118,40,6,12-03-2025,14.48,29.85,29.16,0.38,5.52,2.60,9.13,1.03,5000,105,5000,24,5000000,165
-119,40,6,12-03-2025,14.47,29.92,29.50,0.29,5.44,2.46,9.11,1.1,5000,,50000,17,5000000,201
+119,40,6,12-03-2025,14.47,29.92,29.50,0.29,5.44,2.46,9.11,1.1,5000,NA,50000,17,5000000,201
 120,40,6,12-03-2025,14.47,29.77,29.04,0.34,5.36,2.52,9.13,1.04,5000,45,5000,31,500000,19
 121,41,6,12-03-2025,14.48,29.85,29.01,0.39,5.57,2.69,9.01,1.03,5000,86,5000,43,50000,24
 122,41,6,12-03-2025,14.47,30.03,29.57,0.34,5.49,2.54,9.05,1.07,5000,17,5000,27,50000,231

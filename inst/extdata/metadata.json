@@ -1,0 +1,50 @@
+{
+  "@context": "https://schema.org/",
+  "@type": "Dataset",
+  "name": "Fungal Growth Assay on Human Faeces",
+  "description": "Data from a laboratory assay investigating the growth of fungal species on human faeces and their effect on faecal physicochemical properties and bacterial indicator concentrations over 14 days post inoculation. Five fungal species were tested alongside untreated controls: Pleurotus ostreatus (MG1015, MG1010), Ganoderma lucidum, Stropharia fimicola (F35), and Trichoderma harzianum (T22).",
+  "url": "https://github.com/Global-Health-Engineering/fungalgrowth",
+  "datePublished": "2026-04-30",
+  "license": "https://opensource.org/licenses/MIT",
+  "keywords": [
+    "fungal growth",
+    "human faeces",
+    "sanitation",
+    "pathogen reduction",
+    "mycoremediation",
+    "Pleurotus ostreatus",
+    "Ganoderma lucidum"
+  ],
+  "creator": {
+    "@type": "Person",
+    "name": "Jules Peter",
+    "email": "jupeter@ethz.ch",
+    "@id": "https://orcid.org/0000-0002-1966-1197",
+    "affiliation": {
+      "@type": "Organization",
+      "name": "ETH Zurich Global Health Engineering"
+    }
+  },
+  "temporalCoverage": "2025-10-29/2025-11-25",
+  "spatialCoverage": {
+    "@type": "Place",
+    "name": "ETH Zurich, Zurich, Switzerland",
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 47.4078,
+      "longitude": 8.5511
+    }
+  },
+  "distribution": [
+    {
+      "@type": "DataDownload",
+      "encodingFormat": "text/csv",
+      "contentUrl": "https://github.com/Global-Health-Engineering/fungalgrowth/raw/main/inst/extdata/fungalgrowth.csv"
+    },
+    {
+      "@type": "DataDownload",
+      "encodingFormat": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+      "contentUrl": "https://github.com/Global-Health-Engineering/fungalgrowth/raw/main/inst/extdata/fungalgrowth.xlsx"
+    }
+  ]
+}

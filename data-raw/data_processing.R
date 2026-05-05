@@ -147,13 +147,7 @@ print(head(growthspeed_processed[, c("id_treatment", area_cols[1:min(3, length(a
 cat("\n")
 
 # Process faeces data ----
-# Step 1: Convert comma-separated numbers to numeric
-faeces_numeric <- faeces |>
-  mutate(
-    dilution_factor_ecoli = as.numeric(gsub(",", "", dilution_factor_ecoli)),
-    dilution_factor_enterococcus = as.numeric(gsub(",", "", dilution_factor_enterococcus)),
-    dilution_factor_platecount = as.numeric(gsub(",", "", dilution_factor_platecount))
-  )
+faeces_numeric <- faeces
 
 # Step 2: Calculate water content for each replicate
 faeces_water <- faeces_numeric |>
@@ -212,7 +206,7 @@ experiment_weights <- experiment |>
 # Step 3: Calculate water content at 14 dpi
 experiment_water <- experiment_weights |>
   mutate(
-    water_content_14dpi = ((sample_weight_14dpi - foil_weight) - (`sample_dry weight` - foil_weight)) / (sample_weight_14dpi - foil_weight)
+    water_content_14dpi = ((sample_weight_14dpi - foil_weight_14dpi) - (sample_dry_weight - foil_weight_14dpi)) / (sample_weight_14dpi - foil_weight_14dpi)
   )
 
 # Step 4: Calculate bacterial concentrations at 14 dpi
