@@ -43,7 +43,7 @@ growthspeed <- read_csv(
 # Treatment 53 is missing its 12/9 measurement; treatment 54 has two entries
 # on that date. The FIRST (in file order) actually belongs to treatment 53.
 # Treatment 58 is missint mesurements on dpi 0, which all are 0.
-new_row_58 <- growthspeed_corrected |>
+new_row_58 <- growthspeed |>
   filter(id_treatment == 58, date == "11/26/25") |>
   mutate(date = "11/25/25")
 
@@ -90,25 +90,24 @@ growthspeed_processed <- growthspeed_contam |>
          growth_description)
 
 # Process faeces data ----
-faeces_numeric <- faeces
 
-# Step 2: Calculate water content for each replicate
-faeces_water <- faeces_numeric |>
+# Calculate water content for each replicate
+faeces_water <- faeces |>
   mutate(
-    water_content_0dpi_1 = ((weight_wet_1 - foil_weight_1) - (dry_weight_1 - foil_weight_1)) / (weight_wet_1 - foil_weight_1),
-    water_content_0dpi_2 = ((weight_wet_2 - foil_weight_2) - (dry_weight_2 - foil_weight_2)) / (weight_wet_2 - foil_weight_2),
-    water_content_0dpi_3 = ((weight_wet_3 - foil_weight_3) - (dry_weight_3 - foil_weight_3)) / (weight_wet_3 - foil_weight_3)
+    water_content_1 = ((weight_wet_1 - foil_weight_1) - (dry_weight_1 - foil_weight_1)) / (weight_wet_1 - foil_weight_1),
+    water_content_2 = ((weight_wet_2 - foil_weight_2) - (dry_weight_2 - foil_weight_2)) / (weight_wet_2 - foil_weight_2),
+    water_content_3 = ((weight_wet_3 - foil_weight_3) - (dry_weight_3 - foil_weight_3)) / (weight_wet_3 - foil_weight_3)
   )
 
-# Step 3: Calculate mean water content
+# Calculate mean water content
 faeces_water_mean <- faeces_water |>
   rowwise() |>
   mutate(
-    water_content_0dpi_mean = mean(c(water_content_0dpi_1, water_content_0dpi_2, water_content_0dpi_3), na.rm = TRUE)
+    water_content_mean = mean(c(water_content_1, water_content_2, water_content_3), na.rm = TRUE)
   ) |>
   ungroup()
 
-# Step 4: Calculate bacterial concentrations for each replicate
+# Calculate bacterial concentrations for each replicate
 faeces_bacteria <- faeces_water_mean |>
   mutate(
     ecoli_concentration_1 = e_coli_counted_1 * dilution_factor_ecoli / sample_weight_1,
@@ -122,7 +121,7 @@ faeces_bacteria <- faeces_water_mean |>
     total_plate_count_concentration_3 = total_plate_count_3 * dilution_factor_platecount / sample_weight_3
   )
 
-# Step 5: Calculate mean bacterial concentrations
+# Calculate mean bacterial concentrations
 faeces_processed <- faeces_bacteria |>
   rowwise() |>
   mutate(
@@ -131,14 +130,23 @@ faeces_processed <- faeces_bacteria |>
     total_plate_count_concentration_mean = mean(c(total_plate_count_concentration_1, total_plate_count_concentration_2, total_plate_count_concentration_3), na.rm = TRUE)
   ) |>
   ungroup() |>
-  select(id_faeces, ph_0dpi = ph, water_content_0dpi_mean, ecoli_concentration_0dpi_mean = ecoli_concentration_mean, enterococcus_concentration_0dpi_mean = enterococcus_concentration_mean, total_plate_count_concentration_0dpi_mean = total_plate_count_concentration_mean)
-
-cat("=== Faeces processed ===\n")
-cat("Rows:", nrow(faeces_processed), "\n")
-glimpse(faeces_processed)
-cat("\n")
+  select(id_faeces,
+         collection_date_1,
+         collection_date_2,
+         weight_1,
+         weight_2,
+         weight_total,
+         weight_additive,
+         additive,
+         additive_ratio,
+         ph,
+         water_content_mean,
+         ecoli_concentration_mean,
+         enterococcus_concentration_mean,
+         total_plate_count_concentration_mean)
 
 # Process experiment data ----
+
 # Step 1: Calculate wet weights (no exclusion filter applied)
 experiment_weights <- experiment |>
   mutate(
