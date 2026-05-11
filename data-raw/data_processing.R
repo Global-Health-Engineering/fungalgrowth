@@ -19,7 +19,6 @@ library(here)
 # Load data ----
 experiment <- read_csv(
   here("data-raw", "experiment_2_2.csv"),
-  locale = locale(encoding = "UTF-8"),
   show_col_types = FALSE
 )
 
@@ -38,113 +37,57 @@ growthspeed <- read_csv(
   show_col_types = FALSE
 )
 
-# Verify data loaded ----
-cat("=== Data loaded ===\n")
-cat("experiment:", nrow(experiment), "rows\n")
-cat("faeces:", nrow(faeces), "rows\n")
-cat("inoculum:", nrow(inoculum), "rows\n")
-cat("growthspeed:", nrow(growthspeed), "rows\n\n")
-
 # Process growthspeed data ----
-# Step 1: Parse dates
-growthspeed_dated <- growthspeed |>
-  mutate(date = mdy(date))
 
-# Step 2: Calculate DPI (days post inoculation) from first date per treatment
-growthspeed_dpi <- growthspeed_dated |>
-  group_by(id_treatment) |>
-  mutate(first_date = min(date, na.rm = TRUE)) |>
-  ungroup() |>
-  mutate(dpi = as.integer(date - first_date))
+# Fix data entry error on 2025-12-09:
+# Treatment 53 is missing its 12/9 measurement; treatment 54 has two entries
+# on that date. The FIRST (in file order) actually belongs to treatment 53.
+# Treatment 58 is missint mesurements on dpi 0, which all are 0.
+new_row_58 <- growthspeed_corrected |>
+  filter(id_treatment == 58, date == "11/26/25") |>
+  mutate(date = "11/25/25")
 
-cat("=== DPI values in growthspeed ===\n")
-print(table(growthspeed_dpi$dpi))
-cat("\n")
-
-# Step 3: Calculate total contamination area per row
-growthspeed_contam <- growthspeed_dpi |>
+growthspeed_corrected <- growthspeed |>
+  bind_rows(new_row_58) |>
   mutate(
-    total_contamination_area = rowSums(
-      across(starts_with("contamination_area_"), ~replace_na(as.numeric(.), 0)),
-      na.rm = TRUE
+    .is_target = id_treatment == 54 & date == "12/9/25",
+    id_treatment = if_else(
+      .is_target & cumsum(.is_target) == 1,
+      53,
+      id_treatment
     )
-  )
+  ) |>
+  select(-.is_target)
 
-# Step 4: Pivot area_size to wide format (one column per DPI)
-# First check for NA dpi values
-cat("NA dpi values:", sum(is.na(growthspeed_contam$dpi)), "\n")
-cat("NA id_treatment values:", sum(is.na(growthspeed_contam$id_treatment)), "\n")
+# Claculate dpi from treatment start date
+growthspeed_dpi <- growthspeed_corrected |>
+  mutate(date = mdy(date)) |>
+  left_join(experiment |>
+              mutate(starting_date = mdy(starting_date)) |>
+              select(id_treatment, starting_date), by = "id_treatment") |>
+  mutate(dpi = as.integer(date - starting_date)) |>
+  arrange(id_treatment, date)
 
-# Check for duplicates (same id_treatment + dpi combination)
-duplicates <- growthspeed_contam |>
-  filter(!is.na(dpi), !is.na(id_treatment)) |>
-  group_by(id_treatment, dpi) |>
-  filter(n() > 1)
+# Calculate total contamination area per row
+growthspeed_contam <- growthspeed_dpi |>
+  rowwise() |>
+  mutate(
+    total_contamination_area = sum(
+      replace_na(as.numeric(c_across(starts_with("contamination_area_"))), 0))
+  ) |>
+  ungroup()
 
-cat("Duplicate id_treatment + dpi combinations:", nrow(duplicates), "\n")
-
-# Prepare data for pivot - take mean if there are duplicates
-area_for_pivot <- growthspeed_contam |>
-  filter(!is.na(dpi)) |>
-  filter(!is.na(id_treatment)) |>
-  group_by(id_treatment, dpi) |>
-  summarise(area_size = mean(area_size, na.rm = TRUE), .groups = "drop")
-
-cat("Rows after deduplication:", nrow(area_for_pivot), "\n")
-
-area_wide <- area_for_pivot |>
-  pivot_wider(
-    names_from = dpi,
-    values_from = area_size,
-    names_glue = "area_size_{dpi}dpi"
-  )
-
-# Verify pivot worked
-cat("area_wide dimensions:", nrow(area_wide), "rows x", ncol(area_wide), "columns\n")
-cat("Sample of area_wide:\n")
-print(head(area_wide[, 1:min(5, ncol(area_wide))]))
-
-# Step 5: Summarize contamination and growth description per treatment
-contamination_summary <- growthspeed_contam |>
-  group_by(id_treatment) |>
-  arrange(dpi) |>
-  summarise(
-    max_contamination_area = max(total_contamination_area, na.rm = TRUE),
-    # Calculate contamination AUC using trapezoidal rule
-    contamination_auc = if (n() > 1) {
-      sum(diff(dpi) * (head(total_contamination_area, -1) + tail(total_contamination_area, -1)) / 2, na.rm = TRUE)
-    } else {
-      0
-    },
-    any_contamination = any(nr_contaminations > 0, na.rm = TRUE),
-    any_reproductive_structures = any(reproductive_structures > 0, na.rm = TRUE),
-    # Get growth_description at final timepoint (max DPI)
-    growth_description = growth_description[which.max(dpi)],
-    .groups = "drop"
-  )
-
-# Step 6: Join area and contamination summaries
-growthspeed_processed <- area_wide |>
-  left_join(contamination_summary, by = "id_treatment")
-
-cat("=== Growthspeed processed ===\n")
-cat("Rows:", nrow(growthspeed_processed), "\n")
-cat("Columns:", ncol(growthspeed_processed), "\n")
-cat("Column names:\n")
-print(names(growthspeed_processed))
-cat("\nid_treatment range in growthspeed:",
-    min(growthspeed_processed$id_treatment, na.rm = TRUE), "-",
-    max(growthspeed_processed$id_treatment, na.rm = TRUE), "\n")
-cat("id_treatment type:", class(growthspeed_processed$id_treatment), "\n")
-
-# Check for NA columns in area_size
-area_cols <- names(growthspeed_processed)[grepl("^area_size_", names(growthspeed_processed))]
-cat("Area size columns:", paste(area_cols, collapse = ", "), "\n")
-
-# Check sample of data
-cat("\nSample of growthspeed_processed:\n")
-print(head(growthspeed_processed[, c("id_treatment", area_cols[1:min(3, length(area_cols))])]))
-cat("\n")
+# Growthspeed processed
+growthspeed_processed <- growthspeed_contam |>
+  filter(!dpi == 0) |>
+  select(id_treatment,
+         date,
+         dpi,
+         area_size,
+         nr_contaminations,
+         total_contamination_area,
+         reproductive_structures,
+         growth_description)
 
 # Process faeces data ----
 faeces_numeric <- faeces
