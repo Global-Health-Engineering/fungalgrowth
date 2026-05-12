@@ -40,11 +40,11 @@ file from the table below.
 
 | dataset | CSV | XLSX |
 |:---|:---|:---|
-| experiment_setup | [Download CSV](https://github.com/openwashdata/fungalgrowth/raw/main/inst/extdata/experiment_setup.csv) | [Download XLSX](https://github.com/openwashdata/fungalgrowth/raw/main/inst/extdata/experiment_setup.xlsx) |
-| experiment_endpoint | [Download CSV](https://github.com/openwashdata/fungalgrowth/raw/main/inst/extdata/experiment_endpoint.csv) | [Download XLSX](https://github.com/openwashdata/fungalgrowth/raw/main/inst/extdata/experiment_endpoint.xlsx) |
-| faecal_measurements | [Download CSV](https://github.com/openwashdata/fungalgrowth/raw/main/inst/extdata/faecal_measurements.csv) | [Download XLSX](https://github.com/openwashdata/fungalgrowth/raw/main/inst/extdata/faecal_measurements.xlsx) |
-| inoculum_species | [Download CSV](https://github.com/openwashdata/fungalgrowth/raw/main/inst/extdata/inoculum_species.csv) | [Download XLSX](https://github.com/openwashdata/fungalgrowth/raw/main/inst/extdata/inoculum_species.xlsx) |
-| fungal_growth | [Download CSV](https://github.com/openwashdata/fungalgrowth/raw/main/inst/extdata/fungal_growth.csv) | [Download XLSX](https://github.com/openwashdata/fungalgrowth/raw/main/inst/extdata/fungal_growth.xlsx) |
+| experiment_setup | [Download CSV](https://github.com/global-health-engineering/fungalgrowth/raw/main/inst/extdata/experiment_setup.csv) | [Download XLSX](https://github.com/global-health-engineering/fungalgrowth/raw/main/inst/extdata/experiment_setup.xlsx) |
+| experiment_endpoint | [Download CSV](https://github.com/global-health-engineering/fungalgrowth/raw/main/inst/extdata/experiment_endpoint.csv) | [Download XLSX](https://github.com/global-health-engineering/fungalgrowth/raw/main/inst/extdata/experiment_endpoint.xlsx) |
+| faecal_measurements | [Download CSV](https://github.com/global-health-engineering/fungalgrowth/raw/main/inst/extdata/faecal_measurements.csv) | [Download XLSX](https://github.com/global-health-engineering/fungalgrowth/raw/main/inst/extdata/faecal_measurements.xlsx) |
+| inoculum_species | [Download CSV](https://github.com/global-health-engineering/fungalgrowth/raw/main/inst/extdata/inoculum_species.csv) | [Download XLSX](https://github.com/global-health-engineering/fungalgrowth/raw/main/inst/extdata/inoculum_species.xlsx) |
+| fungal_growth | [Download CSV](https://github.com/global-health-engineering/fungalgrowth/raw/main/inst/extdata/fungal_growth.csv) | [Download XLSX](https://github.com/global-health-engineering/fungalgrowth/raw/main/inst/extdata/fungal_growth.xlsx) |
 
 ## Data
 
