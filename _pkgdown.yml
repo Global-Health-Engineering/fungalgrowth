@@ -1,0 +1,22 @@
+
+url: https://github.com/openwashdata/fungalgrowth
+template:
+  bootstrap: 5
+  includes:
+    in_header: |
+      <script defer data-domain="openwashdata.github.io" src="https://plausible.io/js/script.js"></script>
+
+home:
+  links:
+    - icon: github
+      text: GitHub repository
+      href: https://github.com/openwashdata/fungalgrowth
+  sidebar:
+    structure: [links, citation, authors, dev]
+
+authors:
+  footer:
+    roles: [cre, fnd]
+    text: "Crafted by"
+  sidebar:
+    roles: [cre, aut, ctb]
