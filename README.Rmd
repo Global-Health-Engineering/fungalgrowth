@@ -69,7 +69,7 @@ file from the table below.
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 
-extdata_path <- "https://github.com/openwashdata/fungalgrowth/raw/main/inst/extdata/"
+extdata_path <- "https://github.com/global-health-engineering/fungalgrowth/raw/main/inst/extdata/"
 
 read_csv("data-raw/dictionary.csv") |> 
   distinct(file_name) |> 
