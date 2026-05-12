@@ -31,7 +31,12 @@ knitr::opts_chunk$set(
 
 <!-- badges: end -->
 
-The goal of fungalgrowth is to ...
+Data from a laboratory assay investigating the growth of fungal species on 
+human faeces and their effect on faecal physicochemical properties and 
+bacterial indicator concentrations over 14 days post inoculation. Five fungal 
+species were tested alongside untreated controls: Pleurotus ostreatus (MG1015, 
+MG1010), Ganoderma lucidum, Stropharia fimicola (F35), and Trichoderma 
+harzianum (T22).
 
 ## Installation
 
@@ -80,15 +85,39 @@ read_csv("data-raw/dictionary.csv") |>
 
 ## Data
 
-The package provides access to ...
+The package provides access to five datasets that together document the experimental design, the characterization of the inputs (faeces samples and fungal inocula), the time-series of mycelium growth observations, and the endpoint measurements at 14 days post inoculation. Each dataset can be loaded directly after attaching the package.
 
 ```{r}
 library(fungalgrowth)
 ```
 
+### experiment_setup
+
+The dataset `experiment_setup` contains data about the experimental setup recorded at 0 days post inoculation (0 dpi), linking each treatment unit to its faeces sample and fungal inoculum along with the initial faeces wet weight on the plate. It has
+`r nrow(experiment_setup)` observations and `r ncol(experiment_setup)`
+variables
+
+```{r}
+experiment_setup |>
+  head(3) |>
+  gt::gt() |>
+  gt::as_raw_html()
+```
+
+For an overview of the variable names, see the following table.
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+readr::read_csv("data-raw/dictionary.csv") |>
+  dplyr::filter(file_name == "experiment_setup.rda") |>
+  dplyr::select(variable_name:description) |>
+  knitr::kable() |>
+  kableExtra::kable_styling("striped") |>
+  kableExtra::scroll_box(height = "200px")
+```
+
 ### experiment_endpoint
 
-The dataset `experiment_endpoint` contains data about ... It has
+The dataset `experiment_endpoint` contains data about the experimental measurements taken at 14 days post inoculation (14 dpi), including faeces wet and dry weights, pH, and bacterial indicator concentrations (E. coli, Enterococcus, total plate count) for each treatment unit. It has
 `r nrow(experiment_endpoint)` observations and `r ncol(experiment_endpoint)`
 variables
 
@@ -104,9 +133,81 @@ For an overview of the variable names, see the following table.
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 readr::read_csv("data-raw/dictionary.csv") |>
   dplyr::filter(file_name == "experiment_endpoint.rda") |>
-  dplyr::select(variable_name:description) |> 
-  knitr::kable() |> 
-  kableExtra::kable_styling("striped") |> 
+  dplyr::select(variable_name:description) |>
+  knitr::kable() |>
+  kableExtra::kable_styling("striped") |>
+  kableExtra::scroll_box(height = "200px")
+```
+
+### faecal_measurements
+
+The dataset `faecal_measurements` contains data about the characterization of each faeces sample at 0 days post inoculation (0 dpi), including total faeces weight, additive composition, pH, water content, and bacterial indicator concentrations (E. coli, Enterococcus, total plate count) averaged across three replicates. It has
+`r nrow(faecal_measurements)` observations and `r ncol(faecal_measurements)`
+variables
+
+```{r}
+faecal_measurements |>
+  head(3) |>
+  gt::gt() |>
+  gt::as_raw_html()
+```
+
+For an overview of the variable names, see the following table.
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+readr::read_csv("data-raw/dictionary.csv") |>
+  dplyr::filter(file_name == "faecal_measurements.rda") |>
+  dplyr::select(variable_name:description) |>
+  knitr::kable() |>
+  kableExtra::kable_styling("striped") |>
+  kableExtra::scroll_box(height = "200px")
+```
+
+### inoculum_species
+
+The dataset `inoculum_species` contains data about the fungal inocula used in the assay, providing the mapping from each inoculum identifier to the fungal species. It has
+`r nrow(inoculum_species)` observations and `r ncol(inoculum_species)`
+variables
+
+```{r}
+inoculum_species |>
+  head(3) |>
+  gt::gt() |>
+  gt::as_raw_html()
+```
+
+For an overview of the variable names, see the following table.
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+readr::read_csv("data-raw/dictionary.csv") |>
+  dplyr::filter(file_name == "inoculum_species.rda") |>
+  dplyr::select(variable_name:description) |>
+  knitr::kable() |>
+  kableExtra::kable_styling("striped") |>
+  kableExtra::scroll_box(height = "200px")
+```
+
+### fungal_growth
+
+The dataset `fungal_growth` contains time-series observations of fungal mycelium growth on each treatment unit, with one row per treatment-observation date. Variables include mycelium area, contamination metrics, and growth descriptors recorded at each timepoint. It has
+`r nrow(fungal_growth)` observations and `r ncol(fungal_growth)`
+variables
+
+```{r}
+fungal_growth |>
+  head(3) |>
+  gt::gt() |>
+  gt::as_raw_html()
+```
+
+For an overview of the variable names, see the following table.
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+readr::read_csv("data-raw/dictionary.csv") |>
+  dplyr::filter(file_name == "fungal_growth.rda") |>
+  dplyr::select(variable_name:description) |>
+  knitr::kable() |>
+  kableExtra::kable_styling("striped") |>
   kableExtra::scroll_box(height = "200px")
 ```
 
