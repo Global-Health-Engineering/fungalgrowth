@@ -1,92 +1,32 @@
-variable,description,unit,type,source
-id_treatment,Unique identifier for each experimental treatment unit,NA,integer,experiment
-id_inoc,Identifier for the fungal inoculum,NA,integer,inoculum
-id_faeces,Identifier for the faeces sample,NA,integer,faeces
-species,Fungal species used as inoculum,NA,character,inoculum
-wet_weight_0dpi,Wet weight of the faeces sample at day 0 post inoculation,g,numeric,experiment
-wet_weight_14dpi,Wet weight of the faeces sample at day 14 post inoculation,g,numeric,experiment
-dry_weight_0dpi,Dry weight of the faeces sample at day 0 post inoculation; derived from wet weight and water content,g,numeric,derived
-dry_weight_14dpi,Dry weight of the faeces sample at day 14 post inoculation; derived from wet weight and water content,g,numeric,experiment
-ph_0dpi,pH of the faeces sample at day 0 post inoculation,NA,numeric,faeces
-ph_14dpi,pH of the faeces sample at day 14 post inoculation,NA,numeric,experiment
-water_content_0dpi_mean,Mean water content of the faeces sample at day 0 post inoculation; mean of 3 replicates,proportion,numeric,faeces
-ecoli_concentration_0dpi_mean,Mean E. coli concentration at day 0 post inoculation; mean of 3 replicates,CFU/g,numeric,faeces
-ecoli_concentration_14dpi,E. coli concentration at day 14 post inoculation,CFU/g,numeric,experiment
-ecoli_log_change,Log10 change in E. coli concentration from day 0 to day 14,log10(CFU/g),numeric,derived
-enterococcus_concentration_0dpi_mean,Mean Enterococcus concentration at day 0 post inoculation; mean of 3 replicates,CFU/g,numeric,faeces
-enterococcus_concentration_14dpi,Enterococcus concentration at day 14 post inoculation,CFU/g,numeric,experiment
-enterococcus_log_change,Log10 change in Enterococcus concentration from day 0 to day 14,log10(CFU/g),numeric,derived
-total_plate_count_concentration_0dpi_mean,Mean total plate count concentration at day 0 post inoculation; mean of 3 replicates,CFU/g,numeric,faeces
-total_plate_count_concentration_14dpi,Total plate count concentration at day 14 post inoculation,CFU/g,numeric,experiment
-total_plate_count_log_change,Log10 change in total plate count concentration from day 0 to day 14,log10(CFU/g),numeric,derived
-area_size_{X}dpi,Area size of fungal mycelium at X days post inoculation; one column per measured timepoint,cm2,numeric,growthspeed
-max_contamination_area,Maximum total contamination area across all measured timepoints,cm2,numeric,growthspeed
-contamination_auc,Area under the curve of total contamination area over time using the trapezoidal rule,cm2*days,numeric,growthspeed
-any_contamination,Whether any contamination was observed across all timepoints,NA,logical,growthspeed
-any_reproductive_structures,Whether any reproductive structures were observed across all timepoints,NA,logical,growthspeed
-growth_description,Description of fungal growth at the final measured timepoint,NA,character,growthspeed
-starting_date,Date when the experimental treatment started,NA,Date,experiment
-plate_empty_weight,Empty weight of the container used to hold the faeces sample,g,numeric,experiment
-weight_0dpi,Total weight of container and faeces sample at day 0 post inoculation; used to derive wet_weight_0dpi,g,numeric,experiment
-weight_14dpi,Total weight of container and faeces sample at day 14 post inoculation; used to derive wet_weight_14dpi,g,numeric,experiment
-foil_weight_14dpi,Weight of the aluminum foil used for subsampling at day 14,g,numeric,experiment
-sample_weight_14dpi,Weight of foil and faeces subsample taken at day 14 for dry weight determination,g,numeric,experiment
-sample_dry_weight,Dry weight of the day-14 subsample after drying; used to derive dry_weight_14dpi,g,numeric,experiment
-bacteria_weight,Weight of faeces sample used for bacterial homogenization and serial dilution at day 14,g,numeric,experiment
-dilution_ecoli,Dilution factor applied for E. coli colony counting at day 14,NA,numeric,experiment
-ecoli_counted,Number of E. coli colonies counted on the dilution plate at day 14,CFU,integer,experiment
-dilution_enterococcus,Dilution factor applied for Enterococcus colony counting at day 14,NA,numeric,experiment
-enterococcus_counted,Number of Enterococcus colonies counted on the dilution plate at day 14,CFU,integer,experiment
-dilution_pc,Dilution factor applied for total plate count at day 14,NA,numeric,experiment
-pc_counted,Number of colonies counted for total plate count at day 14,CFU,integer,experiment
-collection_date_1,Date of the first faeces collection,NA,Date,faeces
-collection_date_2,Date of a second faeces collection if faeces were pooled across two days,NA,Date,faeces
-weight_1,Weight of faeces from the first collection,g,numeric,faeces
-weight_2,Weight of faeces from the second collection (if applicable),g,numeric,faeces
-weight_total,Total weight of faeces collected before additive,g,numeric,faeces
-weight_additive,Weight of additive mixed into the faeces,g,numeric,faeces
-ph,pH of the faeces-additive mixture at collection; corresponds to ph_0dpi in the processed dataset,NA,numeric,faeces
-additive,Type of additive mixed into the faeces,NA,character,faeces
-additive_ratio,Proportion of additive relative to total mixture weight,NA,numeric,faeces
-foil_weight_1,Weight of aluminum foil used as container for water content replicate 1,g,numeric,faeces
-foil_weight_2,Weight of aluminum foil used as container for water content replicate 2,g,numeric,faeces
-foil_weight_3,Weight of aluminum foil used as container for water content replicate 3,g,numeric,faeces
-weight_wet_1,Wet weight of faeces subsample including foil for water content replicate 1,g,numeric,faeces
-weight_wet_2,Wet weight of faeces subsample including foil for water content replicate 2,g,numeric,faeces
-weight_wet_3,Wet weight of faeces subsample including foil for water content replicate 3,g,numeric,faeces
-dry_weight_1,Dry weight of faeces subsample including foil after drying for water content replicate 1,g,numeric,faeces
-dry_weight_2,Dry weight of faeces subsample including foil after drying for water content replicate 2,g,numeric,faeces
-dry_weight_3,Dry weight of faeces subsample including foil after drying for water content replicate 3,g,numeric,faeces
-sample_weight_1,Weight of faeces used for bacterial homogenization and colony counting in replicate 1,g,numeric,faeces
-sample_weight_2,Weight of faeces used for bacterial homogenization and colony counting in replicate 2,g,numeric,faeces
-sample_weight_3,Weight of faeces used for bacterial homogenization and colony counting in replicate 3,g,numeric,faeces
-dilution_factor_ecoli,Dilution factor used for E. coli colony counting at day 0,NA,numeric,faeces
-e_coli_counted_1,E. coli colonies counted in replicate 1 at day 0,CFU,integer,faeces
-e_coli_counted_2,E. coli colonies counted in replicate 2 at day 0,CFU,integer,faeces
-e_coli_counted_3,E. coli colonies counted in replicate 3 at day 0,CFU,integer,faeces
-dilution_factor_enterococcus,Dilution factor used for Enterococcus colony counting at day 0,NA,numeric,faeces
-enterococcus_counted_1,Enterococcus colonies counted in replicate 1 at day 0,CFU,integer,faeces
-enterococcus_counted_2,Enterococcus colonies counted in replicate 2 at day 0,CFU,integer,faeces
-enterococcus_counted_3,Enterococcus colonies counted in replicate 3 at day 0,CFU,integer,faeces
-dilution_factor_platecount,Dilution factor used for total plate count at day 0,NA,numeric,faeces
-total_plate_count_1,Total plate count colonies in replicate 1 at day 0,CFU,integer,faeces
-total_plate_count_2,Total plate count colonies in replicate 2 at day 0,CFU,integer,faeces
-total_plate_count_3,Total plate count colonies in replicate 3 at day 0,CFU,integer,faeces
-material,Growth medium on which the fungal inoculum was cultured (e.g. MEA = malt extract agar),NA,character,inoculum
-production_date,Date when the fungal inoculum was produced,NA,Date,inoculum
-date,Date of the growth observation measurement,NA,Date,growthspeed
-area_size,Area of fungal mycelium at the observation date; long format before pivoting to area_size_{X}dpi columns,cm2,numeric,growthspeed
-contamination_1,Identity or type of contamination spot 1 observed at this timepoint,NA,character,growthspeed
-contamination_area_1,Area of contamination spot 1,cm2,numeric,growthspeed
-contamination_2,Identity or type of contamination spot 2 observed at this timepoint,NA,character,growthspeed
-contamination_area_2,Area of contamination spot 2,cm2,numeric,growthspeed
-contamination_3,Identity or type of contamination spot 3 observed at this timepoint,NA,character,growthspeed
-contamination_area_3,Area of contamination spot 3,cm2,numeric,growthspeed
-contamination_4,Identity or type of contamination spot 4 observed at this timepoint,NA,character,growthspeed
-contamination_area_4,Area of contamination spot 4,cm2,numeric,growthspeed
-contamination_5,Identity or type of contamination spot 5 observed at this timepoint,NA,character,growthspeed
-contamination_area_5,Area of contamination spot 5,cm2,numeric,growthspeed
-nr_contaminations,Number of macroscopically distinct contaminating fungi observed at this timepoint,NA,integer,growthspeed
-reproductive_structures,Presence of reproductive structures at this timepoint; summarized as any_reproductive_structures in processed data,NA,logical,growthspeed
-reproductive_structure_description,Description of reproductive structures observed,NA,character,growthspeed
-comments,Additional observations or comments,NA,character,growthspeed
+directory,file_name,variable_name,variable_type,unit,description
+data,experiment_setup.rda,id_treatment,numeric,NA,Unique identifier for each experimental treatment unit.
+data,experiment_setup.rda,id_inoc,numeric,NA,Identifier for the fungal inoculum used in this treatment; joins to inoculum_species.
+data,experiment_setup.rda,id_faeces,numeric,NA,Identifier for the faeces sample used in this treatment; joins to faecal_measurements.
+data,experiment_setup.rda,wet_weight,numeric,g,Wet weight of the faeces sample at day 0 post inoculation (0 dpi).
+data,experiment_endpoint.rda,id_treatment,numeric,NA,Unique identifier for each experimental treatment unit.
+data,experiment_endpoint.rda,wet_weight,numeric,g,Wet weight of the faeces sample at day 14 post inoculation (14 dpi).
+data,experiment_endpoint.rda,dry_weight,numeric,g,Dry weight of the faeces sample at day 14 post inoculation (14 dpi); derived from wet weight and water content.
+data,experiment_endpoint.rda,ecoli_concentration,numeric,CFU/g,E. coli concentration at day 14 post inoculation (14 dpi).
+data,experiment_endpoint.rda,enterococcus_concentration,numeric,CFU/g,Enterococcus concentration at day 14 post inoculation (14 dpi).
+data,experiment_endpoint.rda,total_plate_count_concentration,numeric,CFU/g,Total plate count concentration at day 14 post inoculation (14 dpi).
+data,experiment_endpoint.rda,ph,numeric,NA,pH of the faeces sample at day 14 post inoculation (14 dpi).
+data,faecal_measurements.rda,id_faeces,numeric,NA,Identifier for the faeces sample.
+data,faecal_measurements.rda,weight_total,numeric,g,Total weight of faeces collected before additive at 0 dpi.
+data,faecal_measurements.rda,weight_additive,numeric,g,Weight of additive mixed into the faeces at 0 dpi.
+data,faecal_measurements.rda,additive,character,NA,Type of additive mixed into the faeces at 0 dpi.
+data,faecal_measurements.rda,additive_ratio,numeric,proportion,Proportion of additive relative to total mixture weight at 0 dpi.
+data,faecal_measurements.rda,ph,numeric,NA,pH of the faeces-additive mixture at collection (0 dpi).
+data,faecal_measurements.rda,water_content_mean,numeric,proportion,Mean water content of the faeces sample at day 0 post inoculation (0 dpi); mean of 3 replicates.
+data,faecal_measurements.rda,ecoli_concentration_mean,numeric,CFU/g,Mean E. coli concentration at day 0 post inoculation (0 dpi); mean of 3 replicates.
+data,faecal_measurements.rda,enterococcus_concentration_mean,numeric,CFU/g,Mean Enterococcus concentration at day 0 post inoculation (0 dpi); mean of 3 replicates.
+data,faecal_measurements.rda,total_plate_count_concentration_mean,numeric,CFU/g,Mean total plate count concentration at day 0 post inoculation (0 dpi); mean of 3 replicates.
+data,inoculum_species.rda,id_inoc,numeric,NA,Identifier for the fungal inoculum.
+data,inoculum_species.rda,species,character,NA,Fungal species used as inoculum.
+data,fungal_growth.rda,id_treatment,numeric,NA,Identifier for the experimental treatment unit; joins to experiment_setup and experiment_endpoint.
+data,fungal_growth.rda,date,Date,NA,Date of the growth observation measurement.
+data,fungal_growth.rda,dpi,integer,days,Days post inoculation; days elapsed between this measurement and the first measurement for this treatment.
+data,fungal_growth.rda,area_size,numeric,cm2,Area of fungal mycelium at the observation date.
+data,fungal_growth.rda,nr_contaminations,numeric,NA,Number of macroscopically distinct contaminating fungi observed at this timepoint.
+data,fungal_growth.rda,total_contamination_area,numeric,cm2,Total area of contamination summed across all observed contamination spots at this timepoint.
+data,fungal_growth.rda,reproductive_structures,numeric,NA,Coded indicator of reproductive structures observed at this timepoint.
+data,fungal_growth.rda,growth_description,numeric,NA,Coded description of fungal growth at this timepoint; numeric score recorded during observation.
