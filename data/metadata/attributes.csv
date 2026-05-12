@@ -1,0 +1,32 @@
+directory,file_name,variable_name,variable_type,unit,description
+data,experiment_setup.rda,id_treatment,numeric,NA,Unique identifier for each experimental treatment unit.
+data,experiment_setup.rda,id_inoc,numeric,NA,Identifier for the fungal inoculum used in this treatment; joins to inoculum_species.
+data,experiment_setup.rda,id_faeces,numeric,NA,Identifier for the faeces sample used in this treatment; joins to faecal_measurements.
+data,experiment_setup.rda,wet_weight,numeric,g,Wet weight of the faeces sample at day 0 post inoculation (0 dpi).
+data,experiment_endpoint.rda,id_treatment,numeric,NA,Unique identifier for each experimental treatment unit.
+data,experiment_endpoint.rda,wet_weight,numeric,g,Wet weight of the faeces sample at day 14 post inoculation (14 dpi).
+data,experiment_endpoint.rda,dry_weight,numeric,g,Dry weight of the faeces sample at day 14 post inoculation (14 dpi); derived from wet weight and water content.
+data,experiment_endpoint.rda,ecoli_concentration,numeric,CFU/g,E. coli concentration at day 14 post inoculation (14 dpi).
+data,experiment_endpoint.rda,enterococcus_concentration,numeric,CFU/g,Enterococcus concentration at day 14 post inoculation (14 dpi).
+data,experiment_endpoint.rda,total_plate_count_concentration,numeric,CFU/g,Total plate count concentration at day 14 post inoculation (14 dpi).
+data,experiment_endpoint.rda,ph,numeric,NA,pH of the faeces sample at day 14 post inoculation (14 dpi).
+data,faecal_measurements.rda,id_faeces,numeric,NA,Identifier for the faeces sample.
+data,faecal_measurements.rda,weight_total,numeric,g,Total weight of faeces collected before additive at 0 dpi.
+data,faecal_measurements.rda,weight_additive,numeric,g,Weight of additive mixed into the faeces at 0 dpi.
+data,faecal_measurements.rda,additive,character,NA,Type of additive mixed into the faeces at 0 dpi.
+data,faecal_measurements.rda,additive_ratio,numeric,proportion,Proportion of additive relative to total mixture weight at 0 dpi.
+data,faecal_measurements.rda,ph,numeric,NA,pH of the faeces-additive mixture at collection (0 dpi).
+data,faecal_measurements.rda,water_content_mean,numeric,proportion,Mean water content of the faeces sample at day 0 post inoculation (0 dpi); mean of 3 replicates.
+data,faecal_measurements.rda,ecoli_concentration_mean,numeric,CFU/g,Mean E. coli concentration at day 0 post inoculation (0 dpi); mean of 3 replicates.
+data,faecal_measurements.rda,enterococcus_concentration_mean,numeric,CFU/g,Mean Enterococcus concentration at day 0 post inoculation (0 dpi); mean of 3 replicates.
+data,faecal_measurements.rda,total_plate_count_concentration_mean,numeric,CFU/g,Mean total plate count concentration at day 0 post inoculation (0 dpi); mean of 3 replicates.
+data,inoculum_species.rda,id_inoc,numeric,NA,Identifier for the fungal inoculum.
+data,inoculum_species.rda,species,character,NA,Fungal species used as inoculum.
+data,fungal_growth.rda,id_treatment,numeric,NA,Identifier for the experimental treatment unit; joins to experiment_setup and experiment_endpoint.
+data,fungal_growth.rda,date,Date,NA,Date of the growth observation measurement.
+data,fungal_growth.rda,dpi,integer,days,Days post inoculation; days elapsed between this measurement and the first measurement for this treatment.
+data,fungal_growth.rda,area_size,numeric,cm2,Area of fungal mycelium at the observation date.
+data,fungal_growth.rda,nr_contaminations,numeric,NA,Number of macroscopically distinct contaminating fungi observed at this timepoint.
+data,fungal_growth.rda,total_contamination_area,numeric,cm2,Total area of contamination summed across all observed contamination spots at this timepoint.
+data,fungal_growth.rda,reproductive_structures,numeric,NA,Coded indicator of reproductive structures observed at this timepoint.
+data,fungal_growth.rda,growth_description,numeric,NA,Coded description of fungal growth at this timepoint; numeric score recorded during observation.

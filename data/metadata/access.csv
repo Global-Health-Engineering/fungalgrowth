@@ -1,0 +1,11 @@
+fileName,name,contentUrl,encodingFormat
+experiment_setup.csv,experiment_setup,https://raw.githubusercontent.com/openwashdata/experiment_setup/main/inst/extdata/experiment_setup.csv,csv
+experiment_endpoint.csv,experiment_endpoint,https://raw.githubusercontent.com/openwashdata/experiment_endpoint/main/inst/extdata/experiment_endpoint.csv,ooxml
+faecal_measurements.csv,faecal_measurements,https://raw.githubusercontent.com/openwashdata/faecal_measurements/main/inst/extdata/faecal_measurements.csv,csv
+inoculum_species.csv,inoculum_species,https://raw.githubusercontent.com/openwashdata/inoculum_species/main/inst/extdata/inoculum_species.csv,ooxml
+fungal_growth.csv,fungal_growth,https://raw.githubusercontent.com/openwashdata/fungal_growth/main/inst/extdata/fungal_growth.csv,csv
+experiment_setup.xlsx,experiment_setup,https://raw.githubusercontent.com/openwashdata/experiment_setup/main/inst/extdata/experiment_setup.xlsx,ooxml
+experiment_endpoint.xlsx,experiment_endpoint,https://raw.githubusercontent.com/openwashdata/experiment_endpoint/main/inst/extdata/experiment_endpoint.xlsx,csv
+faecal_measurements.xlsx,faecal_measurements,https://raw.githubusercontent.com/openwashdata/faecal_measurements/main/inst/extdata/faecal_measurements.xlsx,ooxml
+inoculum_species.xlsx,inoculum_species,https://raw.githubusercontent.com/openwashdata/inoculum_species/main/inst/extdata/inoculum_species.xlsx,csv
+fungal_growth.xlsx,fungal_growth,https://raw.githubusercontent.com/openwashdata/fungal_growth/main/inst/extdata/fungal_growth.xlsx,ooxml
