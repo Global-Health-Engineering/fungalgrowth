@@ -1,6 +1,6 @@
 Package: fungalgrowth
 Title: Fungal Growth Assay on Human Faeces
-Version: 0.0.0.9000
+Version: 0.1.0
 Authors@R: c(
     person("Jules", "Peter", , "jupeter@ethz.ch", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0002-1966-1197")),
@@ -22,6 +22,6 @@ Depends:
 LazyData: true
 Language: en-GB
 Config/Needs/website: rmarkdown
-Date: 2026-05-12
-URL: https://github.com/openwashdata/fungalgrowth
-BugReports: https://github.com/openwashdata/fungalgrowth/issues
+Date: 2026-05-15
+URL: https://github.com/Global-Health-Engineering/fungalgrowth
+BugReports: https://github.com/Global-Health-Engineering/fungalgrowth/issues

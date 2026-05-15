@@ -1,16 +1,16 @@
 
-url: https://github.com/openwashdata/fungalgrowth
+url: https://github.com/Global-Health-Engineering/fungalgrowth
 template:
   bootstrap: 5
   includes:
     in_header: |
-      <script defer data-domain="openwashdata.github.io" src="https://plausible.io/js/script.js"></script>
+      <script defer data-domain="global-health-engineering.github.io" src="https://plausible.io/js/script.js"></script>
 
 home:
   links:
     - icon: github
       text: GitHub repository
-      href: https://github.com/openwashdata/fungalgrowth
+      href: https://github.com/Global-Health-Engineering/fungalgrowth
   sidebar:
     structure: [links, citation, authors, dev]
 

@@ -45,7 +45,7 @@ You can install the development version of fungalgrowth from
 
 ``` r
 # install.packages("devtools")
-devtools::install_github("openwashdata/fungalgrowth")
+devtools::install_github("global-health-engineering/fungalgrowth")
 ```
 
 ```{r}
@@ -230,7 +230,7 @@ ggplot(fungal_growth, aes(x = dpi, y = area_size, group = id_treatment)) +
 ## License
 
 Data are available as
-[CC-BY](https://github.com/openwashdata/%7B%7B%7Bpackagename%7D%7D%7D/blob/main/LICENSE.md).
+[CC-BY](https://github.com/Global-Health-Engineering/fungalgrowth/blob/main/LICENSE.md).
 
 ## Citation
 

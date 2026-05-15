@@ -15,7 +15,7 @@ You can install the development version of fungalgrowth from
 ``` r
 
 # install.packages("devtools")
-devtools::install_github("openwashdata/fungalgrowth")
+devtools::install_github("global-health-engineering/fungalgrowth")
 ```
 
 ``` r
@@ -222,7 +222,7 @@ For an overview of the variable names, see the following table.
 | nr_contaminations | numeric | NA | Number of macroscopically distinct contaminating fungi observed at this timepoint. |
 | total_contamination_area | numeric | cm2 | Total area of contamination summed across all observed contamination spots at this timepoint. |
 | reproductive_structures | numeric | NA | Coded indicator of reproductive structures observed at this timepoint. |
-| growth_description | numeric | NA | Coded description of fungal growth at this timepoint; numeric score recorded during observation. |
+| growth_description | numeric | NA | Mycelium health score assessed on a 0-5 scale by a single unblinded operator: 0: no visible mycelium, 1: sparse/dying mycelium, 2: patchy growth with signs of decline, 3: healthy mycelium covering but with clear visible substrate , 4: dense, vigorous mycelium some substrate visible, 5: dense mycelium mat without any visible material below the mycelium. |
 
 ## Example
 
@@ -246,7 +246,7 @@ ggplot(fungal_growth, aes(x = dpi, y = area_size, group = id_treatment)) +
 ## License
 
 Data are available as
-[CC-BY](https://github.com/openwashdata/%7B%7B%7Bpackagename%7D%7D%7D/blob/main/LICENSE.md).
+[CC-BY](https://github.com/Global-Health-Engineering/fungalgrowth/blob/main/LICENSE.md).
 
 ## Citation
 
@@ -259,7 +259,7 @@ citation("fungalgrowth")
 #> 
 #>   Peter J, Clavijo Daza A (2026). _fungalgrowth: Fungal Growth Assay on
 #>   Human Faeces_. R package version 0.0.0.9000,
-#>   <https://github.com/openwashdata/fungalgrowth>.
+#>   <https://github.com/Global-Health-Engineering/fungalgrowth>.
 #> 
 #> A BibTeX entry for LaTeX users is
 #> 
@@ -268,7 +268,7 @@ citation("fungalgrowth")
 #>     author = {Jules Peter and Adriana {Clavijo Daza}},
 #>     year = {2026},
 #>     note = {R package version 0.0.0.9000},
-#>     url = {https://github.com/openwashdata/fungalgrowth},
+#>     url = {https://github.com/Global-Health-Engineering/fungalgrowth},
 #>   }
 ```
 
@@ -276,14 +276,14 @@ citation("fungalgrowth")
 
 ## All functions
 
-- [`experiment_endpoint`](https://github.com/openwashdata/fungalgrowth/reference/experiment_endpoint.md)
+- [`experiment_endpoint`](https://github.com/Global-Health-Engineering/fungalgrowth/reference/experiment_endpoint.md)
   : experiment_endpoint: Experiment Endpoint Measurements
-- [`experiment_setup`](https://github.com/openwashdata/fungalgrowth/reference/experiment_setup.md)
+- [`experiment_setup`](https://github.com/Global-Health-Engineering/fungalgrowth/reference/experiment_setup.md)
   : experiment_setup: Experiment Setup
-- [`faecal_measurements`](https://github.com/openwashdata/fungalgrowth/reference/faecal_measurements.md)
+- [`faecal_measurements`](https://github.com/Global-Health-Engineering/fungalgrowth/reference/faecal_measurements.md)
   : faecal_measurements: Feacal Samples Measurements
-- [`fungal_growth`](https://github.com/openwashdata/fungalgrowth/reference/fungal_growth.md)
+- [`fungal_growth`](https://github.com/Global-Health-Engineering/fungalgrowth/reference/fungal_growth.md)
   : fungal_growth: Fungal Growth
-- [`inoculum_species`](https://github.com/openwashdata/fungalgrowth/reference/inoculum_species.md)
+- [`inoculum_species`](https://github.com/Global-Health-Engineering/fungalgrowth/reference/inoculum_species.md)
   : inoculum_species: Inoculum Species
 

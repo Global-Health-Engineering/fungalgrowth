@@ -13,8 +13,8 @@
   "keywords": null,
   "distribution": {
     "@type": "DataDownload",
-    "url": "https://raw.githubusercontent.com/openwashdata/experiment_setup/main/inst/extdata/experiment_setup.csv",
-    "contentUrl": "https://raw.githubusercontent.com/openwashdata/experiment_setup/main/inst/extdata/experiment_setup.csv",
+    "url": "https://raw.githubusercontent.com/Global-Health-Engineering/fungalgrowth/main/inst/extdata/experiment_setup.csv",
+    "contentUrl": "https://raw.githubusercontent.com/Global-Health-Engineering/fungalgrowth/main/inst/extdata/experiment_setup.csv",
     "encodingFormat": "text/csv"
   },
   "encodingFormat": "CSV",

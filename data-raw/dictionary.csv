@@ -29,4 +29,4 @@ data,fungal_growth.rda,area_size,numeric,cm2,Area of fungal mycelium at the obse
 data,fungal_growth.rda,nr_contaminations,numeric,NA,Number of macroscopically distinct contaminating fungi observed at this timepoint.
 data,fungal_growth.rda,total_contamination_area,numeric,cm2,Total area of contamination summed across all observed contamination spots at this timepoint.
 data,fungal_growth.rda,reproductive_structures,numeric,NA,Coded indicator of reproductive structures observed at this timepoint.
-data,fungal_growth.rda,growth_description,numeric,NA,Coded description of fungal growth at this timepoint; numeric score recorded during observation.
+data,fungal_growth.rda,growth_description,numeric,NA,"Mycelium health score assessed on a 0-5 scale by a single unblinded operator: 0: no visible mycelium, 1: sparse/dying mycelium, 2: patchy growth with signs of decline, 3: healthy mycelium covering but with clear visible substrate , 4: dense, vigorous mycelium some substrate visible, 5: dense mycelium mat without any visible material below the mycelium. "
