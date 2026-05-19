@@ -48,11 +48,14 @@ file from the table below.
 
 ## Data
 
-The package provides access to five datasets that together document the
-experimental design, the characterization of the inputs (faeces samples
-and fungal inocula), the time-series of mycelium growth observations,
-and the endpoint measurements at 14 days post inoculation. Each dataset
-can be loaded directly after attaching the package.
+The datasets capture a 14-day laboratory assay designed to study how
+fungal mycelium grows on human faeces and how that growth alters the
+substrate’s physicochemical and microbial properties. Five datasets
+describe the assay end to end: the experimental setup, the
+characterization of the inputs (faeces samples and fungal inocula), the
+daily time series of mycelium growth, and the endpoint measurements
+recorded 14 days post inoculation. Each dataset is lazy-loaded and ready
+to use as soon as the package is attached.
 
 ``` r
 
@@ -258,7 +261,7 @@ citation("fungalgrowth")
 #> To cite package 'fungalgrowth' in publications use:
 #> 
 #>   Peter J, Clavijo Daza A (2026). _fungalgrowth: Fungal Growth Assay on
-#>   Human Faeces_. R package version 0.0.0.9000,
+#>   Human Faeces_. R package version 0.1.0,
 #>   <https://github.com/Global-Health-Engineering/fungalgrowth>.
 #> 
 #> A BibTeX entry for LaTeX users is
@@ -267,7 +270,7 @@ citation("fungalgrowth")
 #>     title = {fungalgrowth: Fungal Growth Assay on Human Faeces},
 #>     author = {Jules Peter and Adriana {Clavijo Daza}},
 #>     year = {2026},
-#>     note = {R package version 0.0.0.9000},
+#>     note = {R package version 0.1.0},
 #>     url = {https://github.com/Global-Health-Engineering/fungalgrowth},
 #>   }
 ```

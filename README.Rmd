@@ -85,7 +85,13 @@ read_csv("data-raw/dictionary.csv") |>
 
 ## Data
 
-The package provides access to five datasets that together document the experimental design, the characterization of the inputs (faeces samples and fungal inocula), the time-series of mycelium growth observations, and the endpoint measurements at 14 days post inoculation. Each dataset can be loaded directly after attaching the package.
+The datasets capture a 14-day laboratory assay designed to study how fungal 
+mycelium grows on human faeces and how that growth alters the substrate's 
+physicochemical and microbial properties. Five datasets describe the assay end 
+to end: the experimental setup, the characterization of the inputs (faeces 
+samples and fungal inocula), the daily time series of mycelium growth, and the 
+endpoint measurements recorded 14 days post inoculation. Each dataset is 
+lazy-loaded and ready to use as soon as the package is attached.
 
 ```{r}
 library(fungalgrowth)
